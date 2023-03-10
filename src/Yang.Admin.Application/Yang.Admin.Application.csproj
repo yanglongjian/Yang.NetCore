@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Yang.Admin.Application.xml</DocumentationFile>
+    <OutputPath>bin\Debug\net5.0\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Yang.Admin.Domain\Yang.Admin.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Yang.Admin.Application.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
+
+

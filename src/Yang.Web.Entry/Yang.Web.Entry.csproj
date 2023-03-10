@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspectCore.Extensions.Hosting" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Yang.Admin.Application\Yang.Admin.Application.csproj" />
+    <ProjectReference Include="..\Yang.Web.Pack\Yang.Web.Pack.csproj" />
+  </ItemGroup>
+
+</Project>

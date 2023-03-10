@@ -12,9 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Yang.Cms.Domain\Yang.Cms.Domain.csproj" />
     <ProjectReference Include="..\Yang.Gather.Domain\Yang.Gather.Domain.csproj" />
-    <ProjectReference Include="..\Yang.Sms.Application\Yang.Sms.Application.csproj" />
   </ItemGroup>
 
 </Project>

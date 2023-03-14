@@ -62,64 +62,25 @@ namespace Yang.Core
     public enum FilterOperate
     {
         /// <summary>
-        /// 并且
-        /// </summary>
-        And = 1,
-
-        /// <summary>
-        /// 或者
-        /// </summary>
-        Or = 2,
-
-        /// <summary>
         /// 等于
         /// </summary>
-        Equal = 3,
-
+        Equal = 1,
         /// <summary>
-        /// 不等于
+        /// 字符串的包含（相似）
         /// </summary>
-        NotEqual = 4,
-
-        /// <summary>
-        /// 小于
-        /// </summary>
-        Less = 5,
-
-        /// <summary>
-        /// 小于或等于
-        /// </summary>
-        LessOrEqual = 6,
-
-        /// <summary>
-        /// 大于
-        /// </summary>
-        Greater = 7,
+        Contains = 2,
 
         /// <summary>
         /// 大于或等于
         /// </summary>
-        GreaterOrEqual = 8,
+        GreaterOrEqual = 3,
 
         /// <summary>
-        /// 以……开始
+        /// 小于或等于
         /// </summary>
-        StartsWith = 9,
+        LessOrEqual = 4,
 
-        /// <summary>
-        /// 以……结束
-        /// </summary>
-        EndsWith = 10,
 
-        /// <summary>
-        /// 字符串的包含（相似）
-        /// </summary>
-        Contains = 11,
-
-        /// <summary>
-        /// 字符串的不包含
-        /// </summary>
-        NotContains = 12,
     }
 
     #endregion

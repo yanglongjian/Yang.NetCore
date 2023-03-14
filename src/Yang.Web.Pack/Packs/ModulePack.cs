@@ -21,11 +21,8 @@ namespace Yang.Web.Pack
         /// <summary>
         /// 初始化功能模块
         /// </summary>
-        /// <param name="dllName"></param>
         public static void InitModule()
         {
-            var context = App.GetService<DbContext>();
-
             var moduleList = GetControllers();
 
             #region 根据模块postion划分
@@ -57,8 +54,8 @@ namespace Yang.Web.Pack
 
             #region 模块信息添加更新到数据库
             //获取数据库数据
-            context.Db.BeginTran();
-            var modules = context.Db.Queryable<Admin.Domain.Module>().ToArray();
+            DbContext.Instance.BeginTran();
+            var modules = DbContext.Instance.Queryable<Admin.Domain.Module>().ToArray();
             //删除模块
             var deleteCodes = modules.Select(r => r.Code).Except(moduleList.Select(r => r.Code)).ToArray();
             var deleteModules = modules.Where(r => deleteCodes.Contains(r.Code)).Select(r => r.Id).ToArray();
@@ -66,7 +63,7 @@ namespace Yang.Web.Pack
 
             foreach (var item in deleteModules)
             {
-                context.Db.Deleteable<Admin.Domain.Module>().In(item).ExecuteCommand();
+                DbContext.Instance.Deleteable<Admin.Domain.Module>().In(item).ExecuteCommand();
 
             }
 
@@ -86,7 +83,7 @@ namespace Yang.Web.Pack
                         var parentModule = modules.FirstOrDefault(r => r.Code == parentCode);
                         if (parentModule.IsNotNull()) item.ParentId = parentModule.Id;
                     }
-                    context.Db.Insertable(item).ExecuteCommand();
+                    DbContext.Instance.Insertable(item).ExecuteCommand();
                     addCount++;
                 }
                 else
@@ -103,7 +100,7 @@ namespace Yang.Web.Pack
                         item.Id = module.Id;
                         item.ParentId = module.ParentId;
 
-                        context.Db.Updateable(item).ExecuteCommand();
+                        DbContext.Instance.Updateable(item).ExecuteCommand();
                         updateCount++;
                     }
                 }
@@ -112,34 +109,19 @@ namespace Yang.Web.Pack
             #endregion
 
             $"[添加功能{addCount};更新功能{updateCount};删除功能{deleteCodes.Length}".LogInformation();
-            context.Db.CommitTran();
+            DbContext.Instance.CommitTran();
 
-            #region  添加到缓存中
-            var saveModules = context.Db.Queryable<Admin.Domain.Module>().ToArray();
+            //设置缓存
+            var allModule = DbContext.Instance.Queryable<Admin.Domain.Module>().ToArray();
             var _cache = App.GetService<IMemoryCache>();
-            _cache.Set(AdminConstants.SystemModuleKey, saveModules);
-
-            //设置角色缓存
-            var roles = context.Db.Queryable<Role>().Includes(u => u.Modules).ToList();
-            foreach (var role in roles)
-            {
-                string key = $"{AdminConstants.RoleModulePrefix}{role.Id}";
-                var moduleCodes = role.Modules.Select(r => r.Code).ToArray();
-                if (moduleCodes.Length > 0)
-                {
-                    _cache.Set(key, moduleCodes);
-                }
-            }
-            $"设置模块缓存 [{saveModules.Length}]".LogInformation();
-            #endregion
+            _cache.Set(Constants.SystemModule, allModule);
+            $"设置模块缓存 [{allModule.Length}]".LogInformation();
         }
 
 
         /// <summary>
         /// 获取所有控制器及功能
         /// </summary>
-        /// <param name="path"></param>
-        /// <param name="dll"></param>
         /// <returns></returns>
         private static List<Admin.Domain.Module> GetControllers()
         {

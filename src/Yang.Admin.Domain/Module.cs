@@ -113,15 +113,6 @@ namespace Yang.Admin.Domain
                 return Name;
             }
         }
-
-
-
-        /// <summary>
-        /// 角色
-        /// </summary>
-        [SugarColumn(IsIgnore = true)]
-        [Navigate(typeof(ModuleRole), nameof(ModuleRole.ModuleId), nameof(ModuleRole.RoleId))] //注意顺序
-        public List<Role> Roles { get; set; } //只能是null不能赋默认值
     }
 
     /// <summary>

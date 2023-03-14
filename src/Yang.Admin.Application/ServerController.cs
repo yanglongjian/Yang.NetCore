@@ -1,18 +1,8 @@
-﻿using Furion.DynamicApiController;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using Yang.Admin.Application.Dtos;
-using Yang.Core;
-
-namespace Yang.Application.Admin
+﻿namespace Yang.Application.Admin
 {
     /// <summary>
     /// 服务器信息
     /// </summary>
-    [NonUnify]
-    [ApiDescriptionSettings(Module = "Admin")]
     [ModuleInfo("服务器信息", "系统管理", Module = "Admin", OrderCode = 10)]
     public class ServerController : IDynamicApiController
     {
@@ -20,18 +10,16 @@ namespace Yang.Application.Admin
         /// 获取服务器状态
         /// </summary>
         [ModuleInfo("获取服务器状态")]
-        public virtual AjaxResult GetServerStatus()
+        public virtual ServerStatus GetServerStatus()
         {
             ServerMemory memory = GetMemoryMetrics();
-            var result = new ServerStatus
+            return new ServerStatus
             {
                 TotalRAM = Math.Ceiling(memory.Total / 1024).ToString() + " GB",
                 RAMRate = Math.Ceiling(100 * memory.Used / memory.Total),
                 CPURate = Math.Ceiling(GetCPURate().ToDouble()),
                 RunTime = GetRunTime()
             };
-
-            return new AjaxResult(AjaxResultType.Success, result);
         }
 
         /// <summary>
@@ -39,11 +27,11 @@ namespace Yang.Application.Admin
         /// </summary>
         /// <returns></returns>
         [ModuleInfo("获取服务器基本信息")]
-        public virtual async Task<AjaxResult> GetServerInfo()
+        public virtual async Task<ServerInfo> GetServerInfo()
         {
             var ip = await IPExtension.GetWanIp();
 
-            var result = new ServerInfo()
+            return new ServerInfo()
             {
                 Ip = ip,
                 IpLocation = await IPExtension.GetIpLocation(ip),
@@ -56,8 +44,6 @@ namespace Yang.Application.Admin
                 RamUse = ((double)System.Diagnostics.Process.GetCurrentProcess().WorkingSet64 / 1048576).ToString("N2") + " MB",
                 StartTime = System.Diagnostics.Process.GetCurrentProcess().StartTime.ToString("yyyy-MM-dd HH:mm")
             };
-
-            return new AjaxResult(AjaxResultType.Success, result);
         }
 
 

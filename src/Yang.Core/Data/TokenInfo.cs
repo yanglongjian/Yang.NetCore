@@ -40,11 +40,11 @@ namespace Yang.Core
         /// <summary>
         /// 用户类型
         /// </summary>
-        public UserType UserType { get; set; }
+        public UserType UserType { get; set; } = UserType.Admin;
         /// <summary>
         /// 登录时间
         /// </summary>
-        public DateTime LoginTime { get; set; }
+        public DateTime LoginTime { get; set; } = DateTime.Now;
     }
 
     public enum UserType
@@ -56,15 +56,7 @@ namespace Yang.Core
         /// <summary>
         /// App
         /// </summary>
-        [Description("App")] App = 2,
-        /// <summary>
-        /// 抖音
-        /// </summary>
-        [Description("Douyin")] Douyin = 3,
-        /// <summary>
-        /// 微信
-        /// </summary>
-        [Description("Wechat")] Wechat = 4,
+        [Description("App")] App = 2
     }
 }
 

@@ -22,19 +22,7 @@ namespace Yang.Core
                 {
                     FilterOperate.Equal,
                     Expression.Equal
-                },
-                {
-                    FilterOperate.NotEqual,
-                    Expression.NotEqual
-                },
-                {
-                    FilterOperate.Less,
-                    Expression.LessThan
-                },
-                {
-                    FilterOperate.Greater,
-                    Expression.GreaterThan
-                },
+                },              
                 {
                     FilterOperate.LessOrEqual,
                     Expression.LessThanOrEqual
@@ -42,35 +30,7 @@ namespace Yang.Core
                 {
                     FilterOperate.GreaterOrEqual,
                     Expression.GreaterThanOrEqual
-                },
-                {
-                    FilterOperate.StartsWith,
-                    (left, right) =>
-                    {
-                        if (left.Type != typeof(string))
-                        {
-                            throw new NotSupportedException("“StartsWith”比较方式只支持字符串类型的数据");
-                        }
-                        return Expression.Call(left,
-                            typeof(string).GetMethod("StartsWith", new[] { typeof(string) })
-                            ?? throw new InvalidOperationException($"名称为“StartsWith”的方法不存在"),
-                            right);
-                    }
-                },
-                {
-                    FilterOperate.EndsWith,
-                    (left, right) =>
-                    {
-                        if (left.Type != typeof(string))
-                        {
-                            throw new NotSupportedException("“EndsWith”比较方式只支持字符串类型的数据");
-                        }
-                        return Expression.Call(left,
-                            typeof(string).GetMethod("EndsWith", new[] { typeof(string) })
-                            ?? throw new InvalidOperationException($"名称为“EndsWith”的方法不存在"),
-                            right);
-                    }
-                },
+                },            
                 {
                     FilterOperate.Contains,
                     (left, right) =>
@@ -84,21 +44,7 @@ namespace Yang.Core
                             ?? throw new InvalidOperationException($"名称为“Contains”的方法不存在"),
                             right);
                     }
-                },
-                {
-                    FilterOperate.NotContains,
-                    (left, right) =>
-                    {
-                        if (left.Type != typeof(string))
-                        {
-                            throw new NotSupportedException("“NotContains”比较方式只支持字符串类型的数据");
-                        }
-                        return Expression.Not(Expression.Call(left,
-                            typeof(string).GetMethod("Contains", new[] { typeof(string) })
-                            ?? throw new InvalidOperationException($"名称为“Contains”的方法不存在"),
-                            right));
-                    }
-                }
+                },              
             };
 
         #endregion
@@ -169,11 +115,7 @@ namespace Yang.Core
                 return Expression.Constant(true);
             }
             List<Expression> bodies = new();
-
             bodies.AddRange(rules.Select(rule => GetExpressionBody(param, rule)));
-
-            ///bodies.AddRange(rules.Select(subGroup => GetExpressionBody(param, subGroup)));
-
             return bodies.Aggregate(Expression.AndAlso);
         }
 
@@ -237,7 +179,7 @@ namespace Yang.Core
 
             if (rule.Value == null && (type == typeof(string) || type.IsNullableType()))
             {
-                return rule.Operate == FilterOperate.Equal || rule.Operate == FilterOperate.NotEqual;
+                return rule.Operate == FilterOperate.Equal;
             }
 
             if (rule.Value == null)

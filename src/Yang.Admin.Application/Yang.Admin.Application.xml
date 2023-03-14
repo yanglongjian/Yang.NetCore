@@ -4,452 +4,19 @@
         <name>Yang.Admin.Application</name>
     </assembly>
     <members>
-        <member name="T:Yang.Application.Admin.AuditLogController">
+        <member name="T:Yang.Admin.Application.AdminSeedData">
             <summary>
-            审计日志
+            后台管理数据种子
             </summary>
         </member>
-        <member name="M:Yang.Application.Admin.AuditLogController.#ctor(Yang.Core.IRepository)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.AuditLogController.Read(Yang.Core.PageRequest)">
-            <summary>
-            分页读取列表信息
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Yang.Application.Admin.CommonController">
-            <summary>
-            通用
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.CommonController.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+        <member name="M:Yang.Admin.Application.AdminSeedData.InitData">
             <summary>
             
             </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.CommonController.VerifyCode">
-            <summary>
-            获取验证码
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.CommonController.CheckVerifyCode(System.String,System.String)">
-            <summary>
-            验证验证码的有效性
-            </summary>
-            <param name="id">验证码编号</param>
-            <param name="code">验证码字符串</param>
-            <returns>是否无效</returns>
-        </member>
-        <member name="M:Yang.Application.Admin.CommonController.UploadImage(Microsoft.AspNetCore.Http.IFormFile)">
-            <summary>
-            上传图片
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.CommonController.UploadFile">
-            <summary>
-            上传文件
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.CommonController.FileMerge(System.String,System.String)">
-            <summary>
-            文件合并
-            </summary>
-            <param name="fileName"></param>
-            <param name="temporary"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Yang.Application.Admin.EntityInfoController">
-            <summary>
-            实体信息
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.EntityInfoController.#ctor(Yang.Core.IRepository)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.EntityInfoController.Read(Yang.Core.PageRequest)">
-            <summary>
-            分页读取列表信息
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.EntityInfoController.Update(Yang.Admin.Application.Dtos.EntityAuditInputDto)">
-            <summary>
-            更新数据审计
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Yang.Application.Admin.IdentityController">
-            <summary>
-            登录认证
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.IdentityController.#ctor(Yang.Core.IRepository,Microsoft.Extensions.Caching.Memory.IMemoryCache,Furion.EventBus.IEventPublisher)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.IdentityController.Token(Yang.Admin.Application.Dtos.LoginInputDto)">
-            <summary>
-            获取身份认证Token
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.IdentityController.Logout">
-            <summary>
-            用户登出
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.IdentityController.GetUserInfo">
-            <summary>
-            获取用户信息
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.IdentityController.ChangePassword(Yang.Admin.Application.Dtos.UserPasswordInputDto)">
-            <summary>
-            修改密码
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Yang.Application.Admin.ModuleController">
-            <summary>
-            模块信息
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.ModuleController.#ctor(Yang.Core.IRepository,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.ModuleController.Read">
-            <summary>
-            读取模块功能列表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.ModuleController.ReadTree(Yang.Core.PageRequest)">
-            <summary>
-            读取功能树
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Yang.Application.Admin.RequestLogController">
-            <summary>
-            请求日志
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.RequestLogController.#ctor(Yang.Core.IRepository)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.RequestLogController.Read(Yang.Core.PageRequest)">
-            <summary>
-            分页读取列表信息
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.RequestLogController.GetById(System.String)">
-            <summary>
-            获取详情
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Yang.Application.Admin.RoleController">
-            <summary>
-            角色信息
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.RoleController.#ctor(Yang.Core.IRepository)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.RoleController.Read(Yang.Core.PageRequest)">
-            <summary>
-            分页读取列表信息
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.RoleController.Create(Yang.Admin.Application.Dtos.RoleInputDto)">
-            <summary>
-            新增
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.RoleController.Update(Yang.Admin.Application.Dtos.RoleInputDto)">
-            <summary>
-            更新
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.RoleController.Delete(System.Int32[])">
-            <summary>
-            删除
-            </summary>
-            <param name="ids"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.RoleController.ReadRoleModules(System.Int32)">
-            <summary>
-            读取角色权限
-            </summary>
-            <param name="roleId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.RoleController.SetRoleModules(Yang.Admin.Application.Dtos.ModuleRoleInputDto)">
-            <summary>
-             设置角色权限
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Yang.Application.Admin.ModulePermision">
-            <summary>
-            模块权限扩展
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.ModulePermision.GetCheckedModules(System.Collections.Generic.List{Yang.Admin.Domain.Module},System.String)">
-            <summary>
-            获取模块勾选树
-            </summary>
-            <param name="modules"></param>
-            <param name="parentId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.ModulePermision.SetUserModules(Yang.Admin.Domain.User,System.Collections.Generic.List{Yang.Admin.Domain.ModuleUser},System.String[])">
-            <summary>
-            设置用户权限
-            </summary>
-            <param name="user"></param>
-            <param name="userList"></param>
-            <param name="selectedIds"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.ModulePermision.SetRoleModules(Yang.Admin.Domain.Role,System.Collections.Generic.List{Yang.Admin.Domain.ModuleRole},System.String[])">
-            <summary>
-            设置角色权限
-            </summary>
-            <param name="role"></param>
-            <param name="moduleRoleList"></param>
-            <param name="selectedIds"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Yang.Application.Admin.ServerController">
-            <summary>
-            服务器信息
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.ServerController.GetServerStatus">
-            <summary>
-            获取服务器状态
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.ServerController.GetServerInfo">
-            <summary>
-            获取服务器基本信息
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.ServerController.IsLinux">
-            <summary>
-            判断服务器平台
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.ServerController.GetMemoryMetrics">
-            <summary>
-            获取内存使用状况
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.ServerController.GetCPURate">
-            <summary>
-            获取CPU使用率
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.ServerController.GetRunTime">
-            <summary>
-            获取运行时间
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.ServerController.FormatTime(System.Int64)">
-             <summary>
-            毫秒转天时分秒
-             </summary>
-             <param name="ms"></param>
-             <returns></returns>
-        </member>
-        <member name="T:Yang.Application.Admin.SettingController">
-            <summary>
-            系统配置
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.SettingController.#ctor(Yang.Core.IRepository)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.SettingController.Read">
-            <summary>
-            读取配置信息
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.SettingController.Update(Yang.Admin.Domain.SettingInfo)">
-            <summary>
-            更新
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Yang.Application.Admin.UserController">
-            <summary>
-            用户信息
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.#ctor(Yang.Core.IRepository)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.Read(System.Int32,Yang.Core.PageRequest)">
-            <summary>
-             分页读取列表信息
-            </summary>
-            <param name="deptId"></param>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.Create(Yang.Admin.Application.Dtos.UserInputDto)">
-            <summary>
-            新增
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.Update(Yang.Admin.Application.Dtos.UserInputDto)">
-            <summary>
-            更新
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.Delete(System.Int32[])">
-            <summary>
-            删除
-            </summary>
-            <param name="ids"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.GetUserById(System.Int32)">
-            <summary>
-            获取用户信息
-            </summary>
-            <param name="userId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.ResetPassword(Yang.Admin.Application.Dtos.UserPasswordInputDto)">
-            <summary>
-            重置密码
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.ReadUserModules(System.Int32)">
-            <summary>
-            读取用户权限
-            </summary>
-            <param name="userId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.SetUserModules(Yang.Admin.Application.Dtos.ModuleUserInputDto)">
-            <summary>
-            设置用户权限
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.ReadUserRoles(System.Int32)">
-            <summary>
-            读取用户角色
-            </summary>
-            <param name="userId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Application.Admin.UserController.SetRoles(Yang.Admin.Application.Dtos.UserSetRoleInputDto)">
-            <summary>
-            设置角色
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Yang.Admin.Application.DeptController">
-            <summary>
-            部门管理
-            </summary>
-        </member>
-        <member name="M:Yang.Admin.Application.DeptController.#ctor(Yang.Core.IRepository)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Yang.Admin.Application.DeptController.Read">
-            <summary>
-            读取
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Admin.Application.DeptController.Create(Yang.Admin.Application.Dtos.DeptInputDto)">
-            <summary>
-            新增
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Admin.Application.DeptController.Update(Yang.Admin.Application.Dtos.DeptInputDto)">
-            <summary>
-            更新
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Admin.Application.DeptController.Delete(System.Int32[])">
-            <summary>
-            删除
-            </summary>
-            <param name="ids"></param>
-            <returns></returns>
         </member>
         <member name="T:Yang.Admin.Application.DictController">
             <summary>
             数据字典
-            </summary>
-        </member>
-        <member name="M:Yang.Admin.Application.DictController.#ctor(Yang.Core.IRepository)">
-            <summary>
-            
             </summary>
         </member>
         <member name="M:Yang.Admin.Application.DictController.Read">
@@ -458,18 +25,18 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Yang.Admin.Application.DictController.Create(Yang.Admin.Application.Dtos.DictInputDto)">
+        <member name="M:Yang.Admin.Application.DictController.Create(Yang.Admin.Domain.Dict)">
             <summary>
             新增
             </summary>
-            <param name="dto"></param>
+            <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:Yang.Admin.Application.DictController.Update(Yang.Admin.Application.Dtos.DictInputDto)">
+        <member name="M:Yang.Admin.Application.DictController.Update(Yang.Admin.Domain.Dict)">
             <summary>
             更新
             </summary>
-            <param name="dto"></param>
+            <param name="entity"></param>
             <returns></returns>
         </member>
         <member name="M:Yang.Admin.Application.DictController.Delete(System.Int32[])">
@@ -478,171 +45,6 @@
             </summary>
             <param name="ids"></param>
             <returns></returns>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.AdminValidationTypes">
-            <summary>
-            框架自定义校验
-            </summary>
-        </member>
-        <member name="F:Yang.Admin.Application.Dtos.AdminValidationTypes.StrongPassword">
-            <summary>
-            强密码类型
-            </summary>
-        </member>
-        <member name="F:Yang.Admin.Application.Dtos.AdminValidationTypes.StartWithFurString">
-            <summary>
-            以 Furion 字符串开头，忽略大小写
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.ConfigInputDto">
-            <summary>
-            系统配置信息
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ConfigInputDto.Title">
-            <summary>
-            系统名称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ConfigInputDto.Icon">
-            <summary>
-            系统图标
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ConfigInputDto.Version">
-            <summary>
-            版本号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ConfigInputDto.IsUseGoogle">
-            <summary>
-            是否使用谷歌验证码
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.DeptInputDto">
-            <summary>
-            部门输入信息
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DeptInputDto.Id">
-            <summary>
-            编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DeptInputDto.ParentId">
-            <summary>
-            父节点
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DeptInputDto.Name">
-            <summary>
-            部门名称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DeptInputDto.OrderCode">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DeptInputDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DeptInputDto.Remark">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.DictInputDto">
-            <summary>
-            数据字典输入信息
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DictInputDto.Id">
-            <summary>
-            编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DictInputDto.ParentId">
-            <summary>
-            父节点
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DictInputDto.Code">
-            <summary>
-            键值
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DictInputDto.Name">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DictInputDto.OrderCode">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DictInputDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.DictInputDto.Remark">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.EntityAuditInputDto">
-            <summary>
-            实体信息数据审计输入Dto
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.EntityAuditInputDto.Ids">
-            <summary>
-            编号集合
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.EntityAuditInputDto.IsAudit">
-            <summary>
-            数据审计
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.EntityOutputDto">
-            <summary>
-            实体数据输出
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.EntityOutputDto.Id">
-            <summary>
-            实体编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.EntityOutputDto.Name">
-            <summary>
-            实体名称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.EntityOutputDto.Children">
-            <summary>
-            子节点
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.Operate">
-            <summary>
-            实体操作
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.Operate.Id">
-            <summary>
-            操作类型
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.Operate.Name">
-            <summary>
-            名称
-            </summary>
         </member>
         <member name="T:Yang.Admin.Application.Dtos.LoginInputDto">
             <summary>
@@ -669,16 +71,6 @@
             验证码
             </summary>
         </member>
-        <member name="P:Yang.Admin.Application.Dtos.LoginInputDto.ClientIp">
-            <summary>
-            客户端IP
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.LoginInputDto.UserAgent">
-            <summary>
-            用户代理
-            </summary>
-        </member>
         <member name="T:Yang.Admin.Application.Dtos.Mapper">
             <summary>
             
@@ -689,86 +81,6 @@
             
             </summary>
             <param name="config"></param>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.ModuleInputDto">
-            <summary>
-            菜单输入
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Id">
-            <summary>
-            编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.ParentId">
-            <summary>
-            父节点
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Type">
-            <summary>
-            菜单类型
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Title">
-            <summary>
-            菜单名称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Name">
-            <summary>
-            菜单别名
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Icon">
-            <summary>
-            图标
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Path">
-            <summary>
-            路由地址
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Redirect">
-            <summary>
-            重定向
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Component">
-            <summary>
-            组件
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.OrderCode">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Hidden">
-            <summary>
-            是否隐藏
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Bread">
-            <summary>
-            面包屑
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.FullPage">
-            <summary>
-            整页路由
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.ModuleInputDto.Tag">
-            <summary>
-            标签
-            </summary>
         </member>
         <member name="T:Yang.Admin.Application.Dtos.ModuleRoleInputDto">
             <summary>
@@ -833,221 +145,6 @@
         <member name="P:Yang.Admin.Application.Dtos.ModuleUserInputDto.ModuleIds">
             <summary>
             模块编号集合
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.PermissionInputDto">
-            <summary>
-            权限输入
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PermissionInputDto.RoleId">
-            <summary>
-            角色编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PermissionInputDto.PermissionType">
-            <summary>
-            权限类型
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PermissionInputDto.Custom">
-            <summary>
-            自定义值
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PermissionInputDto.DeptId">
-            <summary>
-            部门编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PermissionInputDto.PermissionId">
-            <summary>
-            模块编号
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.PostInputDto">
-            <summary>
-            岗位输入信息
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PostInputDto.Id">
-            <summary>
-            编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PostInputDto.Code">
-            <summary>
-            岗位编码
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PostInputDto.Name">
-            <summary>
-            岗位名称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PostInputDto.OrderCode">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PostInputDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.PostInputDto.Remark">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.RequestLogOutputDto">
-            <summary>
-            请求日志 输出DTO
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RequestLogOutputDto.Id">
-            <summary>
-            编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RequestLogOutputDto.RequestPath">
-            <summary>
-            请求Api
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RequestLogOutputDto.RequestIp">
-            <summary>
-            请求IP
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RequestLogOutputDto.Elapsed">
-            <summary>
-            耗时
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RequestLogOutputDto.Code">
-            <summary>
-            状态码
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RequestLogOutputDto.Message">
-            <summary>
-            异常消息
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RequestLogOutputDto.CreatedId">
-            <summary>
-            创建者
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RequestLogOutputDto.CreatedTime">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RequestLogOutputDto.Account">
-            <summary>
-            账号
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.RoleInputDto">
-            <summary>
-            角色输入Dto
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RoleInputDto.Id">
-            <summary>
-            编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RoleInputDto.Name">
-            <summary>
-            角色名称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RoleInputDto.IsAdmin">
-            <summary>
-            是否管理角色
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RoleInputDto.IsDefault">
-            <summary>
-            是否管理角色
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RoleInputDto.IsLocked">
-            <summary>
-            是否锁定
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RoleInputDto.Remark">
-            <summary>
-            描述
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.RouteOutputDto">
-            <summary>
-            动态路由输出信息
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RouteOutputDto.Name">
-            <summary>
-            组件名称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RouteOutputDto.Path">
-            <summary>
-            路径
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RouteOutputDto.Meta">
-            <summary>
-            扩展信息
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RouteOutputDto.Children">
-            <summary>
-            子菜单
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.RouteOutputDto.Component">
-            <summary>
-            组件
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.Meta">
-            <summary>
-            扩展信息
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.Meta.Title">
-            <summary>
-            标题
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.Meta.Icon">
-            <summary>
-            图标
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.Meta.Type">
-            <summary>
-            类型（menu/iframe/link）
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.Meta.Tag">
-            <summary>
-            标签
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.Meta.Hidden">
-            <summary>
-            是否隐藏
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.Meta.Fullpage">
-            <summary>
-            是否整页
             </summary>
         </member>
         <member name="T:Yang.Admin.Application.Dtos.ServerInfo">
@@ -1175,161 +272,6 @@
             确认密码
             </summary>
         </member>
-        <member name="T:Yang.Admin.Application.Dtos.UserInputDto">
-            <summary>
-            用户输入Dto
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserInputDto.Id">
-            <summary>
-            编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserInputDto.Account">
-            <summary>
-            用户名
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserInputDto.NickName">
-            <summary>
-            用户昵称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserInputDto.Avatar">
-            <summary>
-            用户头像
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserInputDto.DeptId">
-            <summary>
-            部门编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserInputDto.PostId">
-            <summary>
-            部门编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserInputDto.Mobile">
-            <summary>
-            手机
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserInputDto.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserInputDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserInputDto.Remark">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.UserOutputDto">
-            <summary>
-            用户输出Dto
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.Id">
-            <summary>
-            编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.Account">
-            <summary>
-            用户名
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.NickName">
-            <summary>
-            用户昵称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.Avatar">
-            <summary>
-            用户头像
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.DeptId">
-            <summary>
-            部门编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.PostId">
-            <summary>
-            部门编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.Mobile">
-            <summary>
-            手机
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.Remark">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.CreatedTime">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.Roles">
-            <summary>
-            角色
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.DeptName">
-            <summary>
-            部门名称
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserOutputDto.PostName">
-            <summary>
-            岗位名称
-            </summary>
-        </member>
-        <member name="T:Yang.Admin.Application.Dtos.UserPasswordInputDto">
-            <summary>
-            修改密码
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserPasswordInputDto.UserId">
-            <summary>
-            用户编号
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserPasswordInputDto.OldPassword">
-            <summary>
-            旧密码
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserPasswordInputDto.NewPassword">
-            <summary>
-            新密码
-            </summary>
-        </member>
-        <member name="P:Yang.Admin.Application.Dtos.UserPasswordInputDto.ConfirmNewPassword">
-            <summary>
-            确认密码
-            </summary>
-        </member>
         <member name="T:Yang.Admin.Application.Dtos.UserRoleInputDto">
             <summary>
             角色分配输入
@@ -1360,121 +302,191 @@
             角色编号
             </summary>
         </member>
-        <member name="T:Yang.Admin.Application.Events.LoginEventSubscriber">
+        <member name="T:Yang.Application.Admin.CommonController">
             <summary>
-            登录日志事件
+            通用
             </summary>
         </member>
-        <member name="P:Yang.Admin.Application.Events.LoginEventSubscriber.Services">
+        <member name="M:Yang.Application.Admin.CommonController.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Yang.Admin.Application.Events.LoginEventSubscriber.#ctor(System.IServiceProvider)">
+        <member name="M:Yang.Application.Admin.CommonController.UploadImage(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            上传图片
+            </summary>
+        </member>
+        <member name="T:Yang.Application.Admin.IdentityController">
+            <summary>
+            登录认证
+            </summary>
+        </member>
+        <member name="M:Yang.Application.Admin.IdentityController.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
             <summary>
             
             </summary>
-            <param name="services"></param>
         </member>
-        <member name="M:Yang.Admin.Application.Events.LoginEventSubscriber.CreateLoginLog(Furion.EventBus.EventHandlerExecutingContext)">
+        <member name="M:Yang.Application.Admin.IdentityController.Token(Yang.Admin.Application.Dtos.LoginInputDto)">
             <summary>
-            登录事件
+            获取身份认证Token
             </summary>
-            <param name="context"></param>
+            <param name="dto"></param>
             <returns></returns>
         </member>
-        <member name="M:Yang.Admin.Application.Events.LoginEventSubscriber.UpdateLoginLog(Furion.EventBus.EventHandlerExecutingContext)">
+        <member name="M:Yang.Application.Admin.IdentityController.GetUserInfo">
             <summary>
-            登出事件
+            获取用户信息
             </summary>
-            <param name="context"></param>
             <returns></returns>
         </member>
-        <member name="T:Yang.Admin.Application.Events.LoginLogEventSubscriber">
+        <member name="M:Yang.Application.Admin.IdentityController.Logout">
             <summary>
-            登录日志事件
+            用户登出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Yang.Application.Admin.IdentityController.ChangePassword(Yang.Admin.Application.Dtos.SetPasswordInputDto)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Yang.Application.Admin.ModuleController">
+            <summary>
+            模块信息
             </summary>
         </member>
-        <member name="P:Yang.Admin.Application.Events.LoginLogEventSubscriber.Services">
+        <member name="M:Yang.Application.Admin.ModuleController.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache)">
             <summary>
             
             </summary>
         </member>
-        <member name="M:Yang.Admin.Application.Events.LoginLogEventSubscriber.#ctor(System.IServiceProvider)">
+        <member name="M:Yang.Application.Admin.ModuleController.Read">
             <summary>
-            
+            读取模块功能列表
             </summary>
-            <param name="services"></param>
-        </member>
-        <member name="M:Yang.Admin.Application.Events.LoginLogEventSubscriber.CreateLoginLog(Furion.EventBus.EventHandlerExecutingContext)">
-            <summary>
-            登录事件
-            </summary>
-            <param name="context"></param>
             <returns></returns>
         </member>
-        <member name="M:Yang.Admin.Application.Events.LoginLogEventSubscriber.UpdateLoginLog(Furion.EventBus.EventHandlerExecutingContext)">
+        <member name="M:Yang.Application.Admin.ModuleController.ReadTree">
             <summary>
-            登出事件
+            读取功能树
             </summary>
-            <param name="context"></param>
             <returns></returns>
         </member>
-        <member name="T:Yang.Admin.Application.PostController">
+        <member name="T:Yang.Application.Admin.RoleController">
             <summary>
-            岗位管理
+            角色信息
             </summary>
         </member>
-        <member name="M:Yang.Admin.Application.PostController.#ctor(Yang.Core.IRepository)">
+        <member name="M:Yang.Application.Admin.RoleController.Read(Yang.Core.PageRequest)">
             <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Yang.Admin.Application.PostController.Read(Yang.Core.PageRequest)">
-            <summary>
-            读取列表
+            分页读取列表信息
             </summary>
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:Yang.Admin.Application.PostController.GetPosts">
-            <summary>
-            获取岗位列表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Yang.Admin.Application.PostController.Create(Yang.Admin.Application.Dtos.PostInputDto)">
+        <member name="M:Yang.Application.Admin.RoleController.Create(Yang.Admin.Domain.Role)">
             <summary>
             新增
             </summary>
-            <param name="dto"></param>
+            <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:Yang.Admin.Application.PostController.Update(Yang.Admin.Application.Dtos.PostInputDto)">
+        <member name="M:Yang.Application.Admin.RoleController.Update(Yang.Admin.Domain.Role)">
             <summary>
             更新
             </summary>
-            <param name="dto"></param>
+            <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:Yang.Admin.Application.PostController.Delete(System.Int32[])">
+        <member name="M:Yang.Application.Admin.RoleController.Delete(System.Int32[])">
             <summary>
             删除
             </summary>
             <param name="ids"></param>
             <returns></returns>
         </member>
-        <member name="T:Yang.Admin.Application.Works.JobWorker">
+        <member name="T:Yang.Application.Admin.ServerController">
             <summary>
-            定时任务(不支持构造函数注入依赖项)
+            服务器信息
             </summary>
         </member>
-        <member name="M:Yang.Admin.Application.Works.JobWorker.DeleteLog(Furion.TaskScheduler.SpareTimer,System.Int64)">
+        <member name="M:Yang.Application.Admin.ServerController.GetServerStatus">
             <summary>
-            删除日志(每天午夜运行一次)
+            获取服务器状态
             </summary>
-            <param name="timer"></param>
-            <param name="count"></param>
+        </member>
+        <member name="M:Yang.Application.Admin.ServerController.GetServerInfo">
+            <summary>
+            获取服务器基本信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Yang.Application.Admin.ServerController.IsLinux">
+            <summary>
+            判断服务器平台
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Yang.Application.Admin.ServerController.GetMemoryMetrics">
+            <summary>
+            获取内存使用状况
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Yang.Application.Admin.ServerController.GetCPURate">
+            <summary>
+            获取CPU使用率
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Yang.Application.Admin.ServerController.GetRunTime">
+            <summary>
+            获取运行时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Yang.Application.Admin.ServerController.FormatTime(System.Int64)">
+             <summary>
+            毫秒转天时分秒
+             </summary>
+             <param name="ms"></param>
+             <returns></returns>
+        </member>
+        <member name="T:Yang.Application.Admin.UserController">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="M:Yang.Application.Admin.UserController.Read(System.Int32,Yang.Core.PageRequest)">
+            <summary>
+             分页读取列表信息
+            </summary>
+            <param name="deptId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yang.Application.Admin.UserController.Create(Yang.Admin.Domain.User)">
+            <summary>
+            新增
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yang.Application.Admin.UserController.Update(Yang.Admin.Domain.User)">
+            <summary>
+            更新
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yang.Application.Admin.UserController.Delete(System.Int32[])">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
             <returns></returns>
         </member>
     </members>

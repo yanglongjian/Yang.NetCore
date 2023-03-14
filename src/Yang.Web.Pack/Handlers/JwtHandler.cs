@@ -4,7 +4,6 @@ using Furion.DataEncryption;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -50,52 +49,19 @@ namespace Yang.Web.Pack
         private static Task<bool> CheckAuthorzieAsync(DefaultHttpContext httpContext)
         {
             var _cache = App.GetService<IMemoryCache>();
-            var modules = _cache.Get<Module[]>(AdminConstants.SystemModuleKey);
-            var routeCode = httpContext.Request.Path.Value[1..].ToUpper().Replace("API", "ROOT").Replace("/", ".");
-
-
-            var module = modules.FirstOrDefault(r => r.Code.ToUpper() == routeCode);
+            var modules = _cache.Get<Module[]>(Constants.SystemModule);
+            var code = httpContext.Request.Path.Value[1..].ToUpper().Replace("API", "ROOT").Replace("/", ".");
+            var module = modules.FirstOrDefault(r => r.Code.ToUpper() == code);
             if (module.IsNull()) return Task.FromResult(true);
             if (module.AccessType != AccessType.RoleLimit) return Task.FromResult(true);
 
-
-            // 管理员跳过判断
-            var IsSystem = (App.User?.FindFirstValue("IsSystem")).ToBool();
-            if (IsSystem) return Task.FromResult(true);
-
-            var moduleCodes = GetModuleCodes(_cache);
-            if (!moduleCodes.Distinct().Any(r => r.ToUpper() == routeCode))
-            {
-                return Task.FromResult(false);
-            }
-            return Task.FromResult(true);
-        }
-
-
-        /// <summary>
-        /// 获取用户&角色权限代码
-        /// </summary>
-        /// <param name="_cache"></param>
-        /// <returns></returns>
-        private static List<string> GetModuleCodes(IMemoryCache _cache)
-        {
             var userId = App.User?.FindFirstValue("UserId");
-            var roleIds = _cache.Get<int[]>($"{AdminConstants.UserRolePrefix}{userId}");
-            var permissions = new List<string>();
-
-            //权限判断
-            var userCodes = _cache.Get<string[]>($"{AdminConstants.UserModulePrefix}{userId}");
-            if (userCodes.IsNotNull()) permissions.AddRange(userCodes);
-
-            foreach (var roleId in roleIds)
-            {
-                var roleCodes = _cache.Get<string[]>($"{AdminConstants.RoleModulePrefix}{roleId}");
-                if (roleCodes.IsNotNull()) permissions.AddRange(roleCodes);
-            }
-            return permissions.Distinct().ToList();
+            var userInfo = _cache.Get<User>($"{Constants.UserInfoPrefix}{userId}");
+            // 管理员跳过判断
+            if (userInfo.IsSystem) return Task.FromResult(true);
+            if (userInfo.PermissionCodeList.Any(r => r.ToUpper() == code)) return Task.FromResult(true);
+            return Task.FromResult(false);
         }
-
-
     }
 }
 

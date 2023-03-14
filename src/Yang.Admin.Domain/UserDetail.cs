@@ -21,6 +21,13 @@ namespace Yang.Admin.Domain
         public int UserId { get; set; }
 
         /// <summary>
+        /// 密码
+        /// </summary>
+        [SugarColumn(ColumnDescription = "密码")]
+        public string Password { get; set; }
+
+
+        /// <summary>
         /// 注册IP
         /// </summary>
         [SugarColumn(ColumnDescription = "注册Ip")]
@@ -31,28 +38,6 @@ namespace Yang.Admin.Domain
         /// </summary>
         [SugarColumn(ColumnDescription = "用户代理")]
         public string UserAgent { get; set; }
-
-
-        /// <summary>
-        /// 是否绑定谷歌验证器，通过验证码成功登陆过一次，即算成功
-        /// </summary>
-        [SugarColumn(ColumnDescription = "是否绑定谷歌验证器")]
-        public bool IsBindGoogle { get; set; }
-        /// <summary>
-        /// 谷歌验证码密钥
-        /// </summary>
-        [SugarColumn(ColumnDescription = "谷歌验证码密钥")]
-        public string GoogleSerectKey { get; set; }
-        /// <summary>
-        /// 谷歌验证器app输入的密钥
-        /// </summary>
-        [SugarColumn(ColumnDescription = "谷歌验证器app输入的密钥")]
-        public string GoogleMobileKey { get; set; }
-        /// <summary>
-        /// 谷歌验证绑定二维码
-        /// </summary>
-        [SugarColumn(ColumnDescription = "谷歌验证绑定二维码")]
-        public string GoogleQrCode { get; set; }
     }
 }
 

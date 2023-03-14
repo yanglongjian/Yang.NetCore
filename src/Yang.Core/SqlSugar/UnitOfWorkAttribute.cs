@@ -1,7 +1,5 @@
 ﻿using AspectCore.DynamicProxy;
 using Furion.Logging.Extensions;
-using Furion.UnifyResult;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 
@@ -14,29 +12,22 @@ namespace Yang.Core
     {
         public async override Task Invoke(AspectContext context, AspectDelegate next)
         {
-            var dbContext = context.ServiceProvider.GetService<DbContext>();
             try
             {
-                dbContext.Db.BeginTran();
-                var result = (AjaxResult)(await RunAndGetReturn(context, next));
-                if (result.Code == AjaxResultType.Success)
-                {
-                    dbContext.Db.CommitTran();
-                }
-                else {
-                    dbContext.Db.RollbackTran();
-                }
+                DbContext.Instance.BeginTran();
+                await RunAndGetReturn(context, next);
+                DbContext.Instance.CommitTran();
 
             }
             catch (AggregateException ex)
             {
                 ex.Message.LogError<UnitOfWorkAttribute>();
-                dbContext.Db.RollbackTran();
+                DbContext.Instance.RollbackTran();
             }
             catch (Exception ex)
             {
                 (ex.Message + ex.StackTrace).LogError<UnitOfWorkAttribute>();
-                dbContext.Db.RollbackTran();
+                DbContext.Instance.RollbackTran();
                 throw;
             }
         }

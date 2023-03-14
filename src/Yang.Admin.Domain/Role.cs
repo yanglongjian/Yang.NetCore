@@ -46,7 +46,7 @@ namespace Yang.Admin.Domain
         /// <summary>
         /// 状态
         /// </summary>
-        [SugarColumn(ColumnDescription = "状态", DefaultValue = "0")]
+        [SugarColumn(ColumnDescription = "状态")]
         public int Status { get; set; }
 
         /// <summary>
@@ -62,13 +62,6 @@ namespace Yang.Admin.Domain
         public DateTime CreatedTime { get; set; }
 
         #region 扩展信息
-
-        /// <summary>
-        /// 角色
-        /// </summary>
-        [SugarColumn(IsIgnore = true)]
-        [Navigate(typeof(UserRole), nameof(UserRole.RoleId), nameof(UserRole.UserId))] //注意顺序
-        public List<User> Users { get; set; } //只能是null不能赋默认值
 
         /// <summary>
         /// 模块
